@@ -1,0 +1,47 @@
+
+
+form div.input-group {
+    margin: 20px auto;
+    width: 100%;
+}
+form div input.btn.btn-lg,
+form div input.btn.btn-lg:focus {
+    outline: none;
+    width: 70%;
+    height: 60px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+form div button.btn {
+    width: 30%;
+    height: 60px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.custab{
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin: 5% 0;
+    box-shadow: 3px 3px 2px #ccc;
+    transition: 0.5s;
+}
+.custab:hover{
+    box-shadow: 3px 3px 0px transparent;
+    transition: 0.5s;
+}
+div.header h2{
+    margin: 0 auto;
+    font-size:1.4em ;
+    font-weight: 700;
+    text-decoration-line: underline;
+}
+#schedule > table > tbody > tr > td {
+    width: 100px;
+    height: 100px;
+}
+#schedule > table > thead > tr > th {
+    width: 200px;
+    height: 200px;
+
+}
