@@ -68,7 +68,7 @@
 					data-target="#submenu-1"> <!--<i class="fa fa-fw fa-search"></i>-->
 						Gerer Reservation <i
 						class="fa fa-fw fa-chevron-circle-right pull-right"></i></a></li>
-				<li><a href="<%=request.getContextPath()%>/CTRLgererSalles"
+				<li><a href="<%=request.getContextPath()%>/gerersalles"
 					data-toggle="collapse" data-target="#submenu-2"> Gerer Salles <i
 						class="fa fa-fw fa-chevron-circle-right pull-right"></i>
 				</a></li>
@@ -164,11 +164,11 @@
 								</div>
 								<div class="tab-pane fade in header" id="tab2">
 									<h2 class="text-info text-center">Supprimer Salles</h2>
-									<form action="#">
+									<form action="javascript:void(0);">
 										<div class="input-group">
-											<input class="btn btn-lg" name="searcheq" id="searchss"
-												type="text" placeholder="Search ..." required>
-											<button class="btn btn-success btn-lg" type="submit">
+											<input class="btn btn-lg" name="searchSS" id="searchSS"
+												type="text" placeholder="Search 'Num'  ..." required>
+											<button class="btn btn-success btn-lg"  type="submit" id="searchbuttomsupp">
 												<i class="glyphicon glyphicon-search"></i>&nbsp;&nbsp;&nbsp;
 												Search
 											</button>
@@ -181,11 +181,11 @@
 													<tr>
 														<th>Num</th>
 														<th>Capacité</th>
-														<th>Number Equipment</th>
+														<th>List Equipments</th>
 														<th class="text-center">Action</th>
 													</tr>
 												</thead>
-												<tr>
+												<!--  tr>
 													<td>1</td>
 													<td>30</td>
 													<td>20</td>
@@ -193,8 +193,10 @@
 														class="btn btn-danger btn-xs"> <span
 															class="glyphicon glyphicon-remove"></span>Supprimer
 													</a></td>
-												</tr>
-
+												</tr-->
+												<tbody id="resultsearchSalle" >
+												  
+												</tbody>
 											</table>
 										</div>
 									</div>
@@ -312,10 +314,10 @@
 	<!-- Bootstrap core JavaScript
 ================================================== -->
 	<!-- Placed at the end of the document so the pages load faster -->
-	<script src="js/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/CTRLGererSalles.js"></script>
-	<script src="js/main.js"></script>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/CTRLGererSalles.js"></script>
+	<script type="text/javascript"  src="js/main.js"></script>
 </body>
 </html>
 

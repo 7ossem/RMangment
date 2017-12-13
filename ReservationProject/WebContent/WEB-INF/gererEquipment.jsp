@@ -69,7 +69,7 @@
 					data-target="#submenu-1"> <!--<i class="fa fa-fw fa-search"></i>-->
 						Gerer Reservation <i
 						class="fa fa-fw fa-chevron-circle-right pull-right"></i></a></li>
-				<li><a href="<%=request.getContextPath()%>/CTRLgererSalles"
+				<li><a href="<%=request.getContextPath()%>/gerersalles"
 					data-toggle="collapse" data-target="#submenu-2"> Gerer Salles <i
 						class="fa fa-fw fa-chevron-circle-right pull-right"></i>
 				</a></li>

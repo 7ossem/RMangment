@@ -14,7 +14,7 @@ public class Salles {
 	private List<Salle> ListSalles;
 
 	public Salles() {
-   ListSalles =new ArrayList<Salle>();
+		ListSalles = new ArrayList<Salle>();
 	}
 
 	public List<Salle> getListSalles() {
@@ -55,7 +55,8 @@ public class Salles {
 		return c;
 	}
 
-	public Salle initPeroide(int num) {
+	/* Get Salles By num */
+	public Salle initSalle(int num) {
 		Salle J = null;
 		try {
 			Sql.prepareStatement("select * from salle where num =? ");
@@ -117,4 +118,44 @@ public class Salles {
 		return 1;
 	}
 
+	/* search by numero */
+
+	public Salles SearchSalles(int num) {
+		ResultSet res = null;
+		try {
+			Conn.prepareStatement("select * from salle where num = ? ");
+			Conn.getPreparedStatement().setInt(1, num);
+			res = Conn.executPreparedStatement();
+			Salle salle;
+			if (res.next()) {
+				salle = new Salle();
+				salle = initSalle(res);
+				ListSalles.add(salle);
+			}
+		} catch (SQLException e) {
+			return null;
+		}
+		return this;
+	}
+
+	/* Verifier l'accupation */
+	public int verifierAccupation(int num) {
+		ResultSet res = null;
+		try {
+			Conn.prepareStatement(
+					"SELECT salle.num, reservation.id FROM  public.salle inner join  public.reservation on reservation.sallefg = salle.num where salle.num = ?");
+			Conn.getPreparedStatement().setInt(1, num);
+			res = Conn.executPreparedStatement();
+
+			if (res.next()) {
+				// la salle est reserver
+				return 1;
+			}
+		} catch (SQLException e) {
+			// internal Error
+			return 0;
+		}
+		// la salle n exist pas
+		return -1;
+	}
 }
