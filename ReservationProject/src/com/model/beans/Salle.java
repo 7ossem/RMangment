@@ -12,7 +12,7 @@ public class Salle {
 	private PreparedStatement statement;
 	private ResultSet result;
 	private List<Equipment> Equipments;
-
+    
 	
 	public Salle(int num, int capacite) {
 		super();

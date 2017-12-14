@@ -74,14 +74,14 @@ public class Salles {
 
 	public int insertSalle(Salle p) {
 		try {
-			Sql.prepareStatement("select * from Salle where num = ?  ");
-			Sql.getPreparedStatement().setInt(1, p.getNum());
-			ResultSet result = Sql.executPreparedStatement();
+			Conn.prepareStatement("select * from Salle where num = ? ");
+			Conn.getPreparedStatement().setInt(1, p.getNum());
+			ResultSet result = Conn.executPreparedStatement();
 			if (!result.next()) {
-				Sql.prepareStatement("insert into Salle(num , capacite) values(? , ?)");
-				Sql.getPreparedStatement().setInt(1, p.getNum());
-				Sql.getPreparedStatement().setInt(2, p.getCapacite());
-				Sql.executUpdatePreparedStatement();
+				Conn.prepareStatement("insert into Salle(num , capacite) values(? , ?)");
+				Conn.getPreparedStatement().setInt(1, p.getNum());
+				Conn.getPreparedStatement().setInt(2, p.getCapacite());
+				Conn.executUpdatePreparedStatement();
 			} else {
 				return -1;
 			}
@@ -108,10 +108,15 @@ public class Salles {
 
 	public int deleteSalle(int num) {
 		try {
-			Sql.prepareStatement("delete from Salle where num = ?");
-			Sql.getPreparedStatement().setInt(1, num);
-			Sql.executUpdatePreparedStatement();
-		} catch (SQLException ex) {
+			Equipmentsalles e =new Equipmentsalles();
+			if(e.deleteEqonesalle(num)== 1){
+			Conn.prepareStatement("delete from Salle where num = ?");
+			Conn.getPreparedStatement().setInt(1, num);
+			Conn.executUpdatePreparedStatement();
+			}else {
+				return 0;
+			}
+			} catch (SQLException ex) {
 			Logger.getLogger(Salles.class.getName()).log(Level.SEVERE, null, ex);
 			return 0;
 		}

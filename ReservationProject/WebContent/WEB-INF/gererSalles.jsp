@@ -117,8 +117,8 @@
 								</button>
 							</div>
 							<div class="btn-group" role="group">
-								<button type="button" id="" onclick="ConsulterListSalles();" class="btn btn-default" href="#tab5"
-									data-toggle="tab">
+								<button type="button" id="" onclick="ConsulterListSalles();"
+									class="btn btn-default" href="#tab5" data-toggle="tab">
 									<span class="fa fa-eye fa-5x" aria-hidden="true"></span>
 									<div class="hidden-xs">Consulter</div>
 								</button>
@@ -129,7 +129,7 @@
 							<div class="tab-content">
 								<div class="tab-pane fade in active header" id="tab1">
 									<h2 class="text-center text-info">Ajouter Salles</h2>
-									<form action="#">
+									<form action="javascript:void(0);">
 										<!--<div class="input-group">-->
 										<!--<label for="sNum">Num Salle</label>-->
 										<!--<input class="btn btn-lg" name="sNum" id="sNum" type="text" placeholder="salle Num ..." required>-->
@@ -148,17 +148,17 @@
 										<div class="form-group">
 											<label for="nums">Numero:</label> <input type="number"
 												class="form-control" id="nums" placeholder="Enter Num"
-												name="email">
+												name="email" required />
 										</div>
 										<div class="form-group">
 											<label for="capsts">Capacite :</label> <input type="number"
 												class="form-control" id="capsts" placeholder="Enter Capcite"
-												name="capsts">
+												name="capsts" required />
 										</div>
 										<div class="checkbox">
 											<!--<label><input type="checkbox" name="remember"> Remember me</label>-->
 										</div>
-										<button type="submit" class="btn btn-default">Submit</button>
+										<button type="submit" class="btn btn-default" onclick="AjouterSalle();">Ajouter</button>
 
 									</form>
 								</div>
@@ -168,7 +168,8 @@
 										<div class="input-group">
 											<input class="btn btn-lg" name="searchSS" id="searchSS"
 												type="text" placeholder="Search 'Num'  ..." required>
-											<button class="btn btn-success btn-lg"  type="submit" id="searchbuttomsupp">
+											<button class="btn btn-success btn-lg" type="submit"
+												id="searchbuttomsupp">
 												<i class="glyphicon glyphicon-search"></i>&nbsp;&nbsp;&nbsp;
 												Search
 											</button>
@@ -194,8 +195,8 @@
 															class="glyphicon glyphicon-remove"></span>Supprimer
 													</a></td>
 												</tr-->
-												<tbody id="resultsearchSalle" >
-												  
+												<tbody id="resultsearchSalle">
+
 												</tbody>
 											</table>
 										</div>
@@ -265,7 +266,6 @@
 										</div>
 									</div>
 								</div>
-
 								<div class="tab-pane fade in header" id="tab5">
 									<h2 class="text-center text-info">Consulter La List Des
 										Salles</h2>
@@ -286,7 +286,8 @@
 													<td>30</td>
 													<td>
 														<ul class="list-group">
-															<li class="list-group-item"><span class="badge">14</span>Cras justo odio</li>
+															<li class="list-group-item"><span class="badge">14</span>Cras
+																justo odio</li>
 														</ul>
 													</td>
 													<td class="text-center"><a href="#"
@@ -316,8 +317,9 @@
 	<!-- Placed at the end of the document so the pages load faster -->
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/sweetalert.min.js"></script>
 	<script type="text/javascript" src="js/CTRLGererSalles.js"></script>
-	<script type="text/javascript"  src="js/main.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>
 

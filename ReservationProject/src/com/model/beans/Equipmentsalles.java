@@ -6,6 +6,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Equipmentsalles {
+	
 	public Equipmentsalle initEquipmentsalle(int idsalle,int idequipment) {
 		Equipmentsalle J = null;
 		try {
@@ -73,6 +74,37 @@ public class Equipmentsalles {
 		}
 		return 1;
 	}
+	/* Delete All Equipment for one salle*/
+	public int deleteEqonesalle(int id_salle) {
+		try {
+			Conn.prepareStatement("delete from equipmentsalle where id_salle = ?");
+			Conn.getPreparedStatement().setInt(1, id_salle);
+			Conn.executUpdatePreparedStatement();
+		} catch (SQLException ex) {
+			Logger.getLogger(Equipmentsalle.class.getName()).log(Level.SEVERE, null, ex);
+			return 0;
+		}
+		return 1;
+	}
+	/* Get Numbre of component of one room*/
+	public int getNumbreEquipment(int idsalle,int idequipment) {
+		ResultSet res = null;
+		try {
+			System.out.println(idsalle +"-"+idequipment);
+			Conn.prepareStatement("select * from equipmentsalle where id_equipment =? and id_salle =?");
+			Conn.getPreparedStatement().setInt(1, idequipment);
+			Conn.getPreparedStatement().setInt(2, idsalle);
+			 res = Conn.executPreparedStatement();
+			if (res.next()) {
+              return res.getInt("numero");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return -2;
+		}
+		return -1;
+	}
+
 
 	
 }
