@@ -158,7 +158,8 @@
 										<div class="checkbox">
 											<!--<label><input type="checkbox" name="remember"> Remember me</label>-->
 										</div>
-										<button type="submit" class="btn btn-default" onclick="AjouterSalle();">Ajouter</button>
+										<button type="submit" class="btn btn-default"
+											id="AjuoterSalles">Ajouter</button>
 
 									</form>
 								</div>
@@ -204,10 +205,10 @@
 								</div>
 								<div class="tab-pane fade in header" id="tab3">
 									<h2 class="text-center text-info">Edit Salle</h2>
-									<form action="#">
+									<form action="javascript:void(0);">
 										<div class="input-group">
 											<input class="btn btn-lg" name="searcheq" id="searchesm"
-												type="text" placeholder="Search ..." required>
+												type="text" placeholder="Search salle ..." required>
 											<button class="btn btn-success btn-lg" type="submit">
 												<i class="glyphicon glyphicon-search"></i>&nbsp;&nbsp;&nbsp;
 												Search
@@ -244,6 +245,45 @@
 								<div class="tab-pane fade in header" id="tab4">
 									<h2 class="text-center text-info">Ajouter Equipment a la
 										Salle</h2>
+									<form action="javascript:void(0);">
+										<div class="input-group">
+											<input class="btn btn-lg" name="searchsajeq" id="searchsajeq"
+												type="text" placeholder="Search 'Num'  ..." required>
+											<button class="btn btn-success btn-lg" type="submit"
+												id="searchajeq">
+												<i class="glyphicon glyphicon-search"></i>&nbsp;&nbsp;&nbsp;
+												Search
+											</button>
+										</div>
+									</form>
+									<!--  -->
+									<div>
+										<div class="col-md-12 custyle">
+											<table class="table table-striped custab">
+												<thead>
+													<tr>
+														<th>Num</th>
+														<th>Capacité</th>
+														<th>List Equipments</th>
+														<th class="text-center">Action</th>
+													</tr>
+												</thead>
+												<!--  tr>
+													<td>1</td>
+													<td>30</td>
+													<td>20</td>
+													<td class="text-center"><a href="#"
+														class="btn btn-danger btn-xs"> <span
+															class="glyphicon glyphicon-remove"></span>Supprimer
+													</a></td>
+												</tr-->
+												<tbody id="resultsearchsajeq">
+
+												</tbody>
+											</table>
+										</div>
+									</div>
+									<!--  -->
 									<div>
 										<div class="col-md-12 custyle">
 											<form>
@@ -306,6 +346,47 @@
 				</div>
 				<!-- /.row -->
 			</div>
+
+
+			<!-- Modal -->
+			<div class="modal fade out" id="myModalAddEq" role="dialog">
+				<div class="modal-dialog">
+					<!-- Modal content-->
+					<div class="modal-content">
+					
+						<div class="modal-body">
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+							<p>Some text in the modal.</p>
+							<form>
+								<div class="swal-content" id="">
+									<label for="sel1">Select list (select one):</label> 
+									<select class="swal-content__input" id="idequipment">
+										<!--  option>1</option>
+										<option>2</option>
+										<option>3</option>
+										<option>4</option -->
+									</select>
+								</div>
+								<div class="swal-content">
+									<label for="number"></label> <input type="number"
+										class="swal-content__input " id="numbereq">
+								</div>
+								<input type="hidden"
+										 id="id_salle" value="">
+								<div class="swal-footer">
+								<div class="swal-button-container">
+									<button type="button" class="swal-button swal-button--confirm" id="Numse" >Ajouter Equipment</button>
+								</div>
+								</div>
+								</form>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+
+			<!-- ./Model -->
 			<!-- /.container-fluid -->
 		</div>
 		<!-- /#page-wrapper -->
@@ -315,9 +396,9 @@
 	<!-- Bootstrap core JavaScript
 ================================================== -->
 	<!-- Placed at the end of the document so the pages load faster -->
-	<script type="text/javascript" src="js/jquery.min.js"></script>
-	<script type="text/javascript" src="js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/sweetalert.min.js"></script>
+	<script type="text/javascript" src="js/jquery.min.js"     ></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"  ></script>
+	<script type="text/javascript" src="js/sweetalert.min.js" ></script>
 	<script type="text/javascript" src="js/CTRLGererSalles.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
 </body>

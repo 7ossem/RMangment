@@ -8,7 +8,7 @@ public class Equipmentsalle {
 		super();
 		this.idSalle = idSalle;
 		this.idEquipment = idEquipment;
-		NumEquipment = numEquipment;
+		this.NumEquipment = numEquipment;
 	}
 
 	public int getIdSalle() {

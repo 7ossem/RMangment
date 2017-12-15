@@ -7,7 +7,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Agents {
-
 	public Agent initAgent(int id) {
 		Agent J = null;
 		try {
