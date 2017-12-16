@@ -17,6 +17,8 @@
 <!-- font-awesome CSS -->
 <!--<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">-->
 <link href="css/font-awesome.min.css" rel="stylesheet">
+<!-- for search form -->
+<link href="css/forsearch.css" rel="stylesheet">
 <!-- Custom styles for this template -->
 <link href="css/main.css" rel="stylesheet">
 <!--Animate -->
@@ -100,144 +102,97 @@
 						<div class="col-sm-12">
 							<div class="tab-content">
 								<div class="tab-pane fade in active header" id="tab1">
-									
+
 									<h2 class="text-center text-info">Gerer Les Reservation</h2>
-									
-									
+
+
 									<!-- Search -->
-									     <div id="filter-panel" class="collapse filter-panel">
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    <form class="form-inline" role="form">
-                        <div class="form-group">
-                            <label class="filter-col" style="margin-right:0;" for="pref-perpage">Rows per page:</label>
-                            <select id="pref-perpage" class="form-control">
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option selected="selected" value="10">10</option>
-                                <option value="15">15</option>
-                                <option value="20">20</option>
-                                <option value="30">30</option>
-                                <option value="40">40</option>
-                                <option value="50">50</option>
-                                <option value="100">100</option>
-                                <option value="400">400</option>
-                            </select>                                
-                        </div> <!-- form group [rows] -->
-                        <div class="form-group">
-                            <label class="filter-col" style="margin-right:0;" for="pref-search">Search:</label>
-                            <input type="text" class="form-control input-sm" id="pref-search">
-                        </div><!-- form group [search] -->
-                        <div class="form-group">
-                            <label class="filter-col" style="margin-right:0;" for="pref-orderby">Order by:</label>
-                            <select id="pref-orderby" class="form-control">
-                                <option>Descendent</option>
-                            </select>                                
-                        </div> <!-- form group [order by] --> 
-                        <div class="form-group">    
-                            <div class="checkbox" style="margin-left:10px; margin-right:10px;">
-                                <label><input type="checkbox"> Ingested</label>
-                            </div>
-                            <div class="checkbox" style="margin-left:10px; margin-right:10px;">
-                                <label><input type="checkbox"> Automated</label>
-                            </div>
-                            <button type="submit" class="btn btn-default filter-col">
-                                <span class="glyphicon glyphicon-record"></span> Save Settings
-                            </button>  
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        
-        <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#filter-panel">
-            <span class="glyphicon glyphicon-cog"></span> Advanced Search
-        </button>
-									<!--  ./Search -->
-									<table class="table table-striped custab">
+									<div id="formsearch" class="panel panel-default">
+										
+									</div>
+								</div>
+
+								<!--  ./Search -->
+								<table class="table table-striped custab">
+									<thead>
+										<tr>
+											<th>Num</th>
+											<th>Capacité</th>
+											<th>Number Equipment</th>
+											<th class="text-center">Action</th>
+										</tr>
+									</thead>
+									<tr>
+										<td>1</td>
+										<td>30</td>
+										<td>20 <span class="fa fa-info-circle"></span></td>
+										<td class="text-center"><a href="#"
+											class="btn btn-info btn-sm"> <span
+												class="fa fa-plus-square-o"></span>&nbsp;&nbsp; Show
+												Schedule
+										</a></td>
+									</tr>
+								</table>
+								<div id="schedule">
+									<table class="table table-bordered">
 										<thead>
 											<tr>
-												<th>Num</th>
-												<th>Capacité</th>
-												<th>Number Equipment</th>
-												<th class="text-center">Action</th>
+												<th scope="col">Days/ Hours</th>
+												<th scope="col">08:30 -- 10:00</th>
+												<th scope="col">10:00 -- 11:30</th>
+												<th scope="col">11:30 -- 13:00</th>
+												<th scope="col">13:00 -- 14:30</th>
+												<th scope="col">14:30 -- 16:00</th>
 											</tr>
 										</thead>
-										<tr>
-											<td>1</td>
-											<td>30</td>
-											<td>20 <span class="fa fa-info-circle"></span></td>
-											<td class="text-center"><a href="#"
-												class="btn btn-info btn-sm"> <span
-													class="fa fa-plus-square-o"></span>&nbsp;&nbsp; Show
-													Schedule
-											</a></td>
-										</tr>
+										<tbody>
+											<tr>
+												<th scope="row">Sunday</th>
+												<td>Mark</td>
+												<td>Otto</td>
+												<td>@mdo</td>
+												<td>Otto</td>
+												<td>@mdo</td>
+
+											</tr>
+											<tr>
+												<th scope="row">Monday</th>
+												<td>Mark</td>
+												<td>Otto</td>
+												<td>Otto</td>
+												<td>@mdo</td>
+												<td>@TwBootstrap</td>
+											</tr>
+											<tr>
+												<th scope="row">Tuesday</th>
+												<td>Jacob</td>
+												<td>Thornton</td>
+												<td>@fat</td>
+												<td>Otto</td>
+												<td>@mdo</td>
+
+											</tr>
+											<tr>
+												<th scope="row">Thursday</th>
+												<td>Otto</td>
+												<td>@mdo</td>
+												<td>Jacob</td>
+												<td>Thornton</td>
+												<td>@fat</td>
+											</tr>
+										</tbody>
 									</table>
-									<div id="schedule">
-										<table class="table table-bordered">
-											<thead>
-												<tr>
-													<th scope="col">Days/ Hours</th>
-													<th scope="col">08:30 -- 10:00</th>
-													<th scope="col">10:00 -- 11:30</th>
-													<th scope="col">11:30 -- 13:00</th>
-													<th scope="col">13:00 -- 14:30</th>
-													<th scope="col">14:30 -- 16:00</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<th scope="row">Sunday</th>
-													<td>Mark</td>
-													<td>Otto</td>
-													<td>@mdo</td>
-													<td>Otto</td>
-													<td>@mdo</td>
-
-												</tr>
-												<tr>
-													<th scope="row">Monday</th>
-													<td>Mark</td>
-													<td>Otto</td>
-													<td>Otto</td>
-													<td>@mdo</td>
-													<td>@TwBootstrap</td>
-												</tr>
-												<tr>
-													<th scope="row">Tuesday</th>
-													<td>Jacob</td>
-													<td>Thornton</td>
-													<td>@fat</td>
-													<td>Otto</td>
-													<td>@mdo</td>
-
-												</tr>
-												<tr>
-													<th scope="row">Thursday</th>
-													<td>Otto</td>
-													<td>@mdo</td>
-													<td>Jacob</td>
-													<td>Thornton</td>
-													<td>@fat</td>
-												</tr>
-											</tbody>
-										</table>
-									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-				<!-- /.row -->
 			</div>
-			<!-- /.container-fluid -->
+			<!-- /.row -->
 		</div>
-		<!-- /#page-wrapper -->
+		<!-- /.container-fluid -->
+	</div>
+	<!-- /#page-wrapper -->
 	</div>
 	<!-- /#wrapper -->
 

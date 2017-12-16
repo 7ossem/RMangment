@@ -1,12 +1,12 @@
 package com.model.beans;
 
-public class Reservation {
+public class Reservations {
 	private int id;
 	private int id_salle;
 	private int id_Periode;
 	private int id_Journee;
 
-	public Reservation() {
+	public Reservations() {
 	}
 
 	public int getId() {

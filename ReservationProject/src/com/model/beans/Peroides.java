@@ -3,11 +3,42 @@ package com.model.beans;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Peroides {
 
+	private List<Peroide> listPeroides;
+    public Peroides() {
+    listPeroides = new ArrayList<Peroide>();	
+    }
+	
+	public List<Peroide> getListPeroides() {
+		return listPeroides;
+	}
+
+	public void setListPeroides(List<Peroide> listPeroides) {
+		this.listPeroides = listPeroides;
+	}
+
+	public Peroides initPeriodes() {
+		Peroide p = null;
+		ResultSet res = null;
+		try {
+			Conn.prepareStatement("select * from periode");
+			res = Conn.executPreparedStatement();
+			while (res.next()) {
+				p = new Peroide(res.getInt("id"),res.getString("starttime"), res.getString("endtime"));
+				listPeroides.add(p);
+			}
+		} catch (SQLException e) {
+			return null;
+		}
+
+		return this;
+	}
 	public Peroide initPeroide(int id) {
 		Peroide J = null;
 		try {
