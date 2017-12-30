@@ -40,7 +40,7 @@ public class Journees {
 		Journee j = null;
 		ResultSet res = null;
 		try {
-			Conn.prepareStatement("select * from journee");
+			Conn.prepareStatement("select * from journee  order by id asc");
 			res = Conn.executPreparedStatement();
 			while (res.next()) {
 				j = new Journee(res.getInt("id"), res.getString("jour"));

@@ -108,15 +108,15 @@ public class Salles {
 
 	public int deleteSalle(int num) {
 		try {
-			Equipmentsalles e =new Equipmentsalles();
-			if(e.deleteEqonesalle(num)== 1){
-			Conn.prepareStatement("delete from Salle where num = ?");
-			Conn.getPreparedStatement().setInt(1, num);
-			Conn.executUpdatePreparedStatement();
-			}else {
+			Equipmentsalles e = new Equipmentsalles();
+			if (e.deleteEqonesalle(num) == 1) {
+				Conn.prepareStatement("delete from Salle where num = ?");
+				Conn.getPreparedStatement().setInt(1, num);
+				Conn.executUpdatePreparedStatement();
+			} else {
 				return 0;
 			}
-			} catch (SQLException ex) {
+		} catch (SQLException ex) {
 			Logger.getLogger(Salles.class.getName()).log(Level.SEVERE, null, ex);
 			return 0;
 		}
@@ -141,6 +141,65 @@ public class Salles {
 			return null;
 		}
 		return this;
+	}
+
+	public Salles SearchAdvanced(int capcite, int id_jour, int id_Peroie, List<Equipmentsalle> equipments) {
+
+		String query = "";
+		if (equipments !=null && equipments.size() > 0) {
+			 query += "and ";
+			boolean b = false;
+			for (Equipmentsalle eq : equipments) {
+
+				if (!b) {
+					query += " s.num in (select id_salle from equipmentsalle where id_equipment =" + eq.getIdEquipment()
+							+ " and numero  >=" + eq.getNumEquipment() + " ) ";
+					b = true;
+				} else {
+					query += "and" + "and s.num in (select id_salle from equipmentsalle where id_equipment ="
+							+ eq.getIdEquipment() + " and numero  >=" + eq.getNumEquipment() + " )";
+				}
+			}
+
+		}
+		System.out.println("Query : " + query);
+		try {
+			stmt = Conn.getConnection().prepareStatement(
+					"Select distinct num , capacite from salle as s inner join equipmentsalle as e on s.num = e.id_salle "
+							+ "inner join equipment as eq  on e.id_equipment = eq.id" + " where num not in "
+							+ "( select sallefg from reservation where periodefk="+id_Peroie+" And jourfk = "+id_jour+" ) " + "and "
+							+ "capacite >="+capcite+" " + " " + query);
+			System.out.println("+"+stmt);
+			result = stmt.executeQuery();
+			Salle salle;
+			while (result.next()) {
+
+				salle = new Salle();
+				salle = initSallesReservation(result);
+				ListSalles.add(salle);
+			}
+		} catch (SQLException ex) {
+			Logger.getLogger(Salles.class.getName()).log(Level.SEVERE, null, ex);
+		}
+		return this;
+	}
+
+	public Salle initSallesReservation(ResultSet result) {
+		Salle c = new Salle();
+		try {
+			// init salle 
+			c.setNum(result.getInt("num"));
+			c.setCapacite(result.getInt("capacite"));
+	      	//init equipment fo salle
+			Equipments equipments = new Equipments();
+			c.setEquipments((equipments.initEquipments(result.getInt("num")).getListEquipments()));
+		    // init Reservation of salle
+			Reservations reservations = new Reservations();
+			c.setListReservation((reservations.initSalleReservation(result.getInt("num")).getListReservation()));
+		} catch (SQLException ex) {
+			Logger.getLogger(Salles.class.getName()).log(Level.SEVERE, null, ex);
+		}
+		return c;
 	}
 
 	/* Verifier l'accupation */

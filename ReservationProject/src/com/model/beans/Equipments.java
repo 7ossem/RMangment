@@ -11,6 +11,7 @@ import java.util.logging.Logger;
 public class Equipments {
 
 	private List<Equipment> listEquipments;
+	private List<Equipmentsalle> listEquipmentsSalle;
 
 	public Equipments() {
 		listEquipments = new ArrayList<Equipment>();
@@ -145,5 +146,12 @@ public class Equipments {
 		this.listEquipments = listEquipments;
 	}
 
-	
+	public List<Equipmentsalle> getListEquipmentsSalle() {
+		return listEquipmentsSalle;
+	}
+
+	public void setListEquipmentsSalle(List<Equipmentsalle> listEquipmentsSalle) {
+		this.listEquipmentsSalle = listEquipmentsSalle;
+	}
+
 }

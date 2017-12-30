@@ -10,9 +10,17 @@ public class Salle {
 	private int  Capacite;
 	/* private String Type; */
 	private PreparedStatement statement;
+	public List<Reservation> getListReservation() {
+		return listReservation;
+	}
+	public void setListReservation(List<Reservation> listReservation) {
+		this.listReservation = listReservation;
+	}
+
 	private ResultSet result;
 	private List<Equipment> Equipments;
-    
+	private List<Reservation> listReservation;
+
 	
 	public Salle(int num, int capacite) {
 		super();
@@ -20,6 +28,7 @@ public class Salle {
 		Capacite = capacite;
 	}
 	public Salle() {
+		listReservation =new ArrayList<Reservation>();
 		Equipments = new ArrayList<Equipment>();
 	}
 	public PreparedStatement getStatement() {

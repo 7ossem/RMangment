@@ -27,7 +27,7 @@ public class Peroides {
 		Peroide p = null;
 		ResultSet res = null;
 		try {
-			Conn.prepareStatement("select * from periode");
+			Conn.prepareStatement("select * from periode order by id asc");
 			res = Conn.executPreparedStatement();
 			while (res.next()) {
 				p = new Peroide(res.getInt("id"),res.getString("starttime"), res.getString("endtime"));

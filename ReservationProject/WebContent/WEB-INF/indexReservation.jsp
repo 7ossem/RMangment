@@ -107,101 +107,35 @@
 
 
 									<!-- Search -->
-									<div id="formsearch" class="panel panel-default">
-										
-									</div>
+									<div id="formsearch" class="panel panel-default"></div>
 								</div>
+								<!-- ---------------------------------------- -->
+								<div id="resSearchSalle"></div>
 
-								<!--  ./Search -->
-								<table class="table table-striped custab">
-									<thead>
-										<tr>
-											<th>Num</th>
-											<th>Capacité</th>
-											<th>Number Equipment</th>
-											<th class="text-center">Action</th>
-										</tr>
-									</thead>
-									<tr>
-										<td>1</td>
-										<td>30</td>
-										<td>20 <span class="fa fa-info-circle"></span></td>
-										<td class="text-center"><a href="#"
-											class="btn btn-info btn-sm"> <span
-												class="fa fa-plus-square-o"></span>&nbsp;&nbsp; Show
-												Schedule
-										</a></td>
-									</tr>
-								</table>
-								<div id="schedule">
-									<table class="table table-bordered">
-										<thead>
-											<tr>
-												<th scope="col">Days/ Hours</th>
-												<th scope="col">08:30 -- 10:00</th>
-												<th scope="col">10:00 -- 11:30</th>
-												<th scope="col">11:30 -- 13:00</th>
-												<th scope="col">13:00 -- 14:30</th>
-												<th scope="col">14:30 -- 16:00</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<th scope="row">Sunday</th>
-												<td>Mark</td>
-												<td>Otto</td>
-												<td>@mdo</td>
-												<td>Otto</td>
-												<td>@mdo</td>
+								<!-- ---------------------------------------- -->
 
-											</tr>
-											<tr>
-												<th scope="row">Monday</th>
-												<td>Mark</td>
-												<td>Otto</td>
-												<td>Otto</td>
-												<td>@mdo</td>
-												<td>@TwBootstrap</td>
-											</tr>
-											<tr>
-												<th scope="row">Tuesday</th>
-												<td>Jacob</td>
-												<td>Thornton</td>
-												<td>@fat</td>
-												<td>Otto</td>
-												<td>@mdo</td>
-
-											</tr>
-											<tr>
-												<th scope="row">Thursday</th>
-												<td>Otto</td>
-												<td>@mdo</td>
-												<td>Jacob</td>
-												<td>Thornton</td>
-												<td>@fat</td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-			</div>
-			<!-- /.row -->
-		</div>
-		<!-- /.container-fluid -->
-	</div>
-	<!-- /#page-wrapper -->
-	</div>
-	<!-- /#wrapper -->
+					<!-- /.row -->
+					<!--  ---------------- -->
 
-	<!-- Bootstrap core JavaScript
+					<!-- ---------------------- -->
+
+				</div>
+				<!-- /.container-fluid -->
+			</div>
+			<!-- /#page-wrapper -->
+		</div>
+		<!-- /#wrapper -->
+
+		<!-- Bootstrap core JavaScript
 ================================================== -->
-	<!-- Placed at the end of the document so the pages load faster -->
-	<script src="js/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/CTRLGererReservation.js"></script>
-	<script src="js/main.js"></script>
+		<!-- Placed at the end of the document so the pages load faster -->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/sweetalert.min.js"></script>
+		<script src="js/CTRLGererReservation.js"></script>
+		<script src="js/main.js"></script>
 </body>
 </html>

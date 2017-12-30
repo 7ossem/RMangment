@@ -54,9 +54,10 @@ function SearchSalleAdvanced(){
 		type : 'post',
 		cache : false,
 		success : function(data) {
-
-			swal("Success!", "Success  !"+data, "success");
-
+			$('#resSearchSalle').html(data);
+			
+			alert(data);
+		
 		},
 		error : function() {
 			swal("danger!",

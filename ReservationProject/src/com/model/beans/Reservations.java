@@ -1,44 +1,65 @@
 package com.model.beans;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
 public class Reservations {
-	private int id;
-	private int id_salle;
-	private int id_Periode;
-	private int id_Journee;
+
+	private List<Reservation> listReservation;
 
 	public Reservations() {
+		listReservation = new ArrayList<Reservation>();
+	}
+	/*
+	 * select * from salle as s where s.num not in ( select sallefg from
+	 * reservation where periodefk=1 And jourfk = 1 ) and s.capacite >= 40 and
+	 * s.num not in (select id_salle from equipmentsalle where id_equipment =1
+	 * and numero = 1)
+	 * 
+	 */
+
+	public Reservations SearchAdvanced(int capcite, int id_jour, int id_Peroie, Equipment equipments) {
+
+		try {
+
+		} catch (Exception e) {
+
+			e.printStackTrace();
+
+			return null;
+		}
+		return this;
 	}
 
-	public int getId() {
-		return id;
+	public Reservations initSalleReservation(int num) {
+		Reservation j = null;
+		ResultSet res = null;
+		try {
+			Conn.prepareStatement(" select r.id , r.sallefg , r.jourfk , r.periodefk  from salle as s inner join "
+					+ " ( select * from reservation where sallefg =? ) as r on ( r.sallefg = s.num) ");
+			Conn.getPreparedStatement().setInt(1, num);
+			res = Conn.executPreparedStatement();
+			while (res.next()) {
+				j = new Reservation();
+			   j.setId(res.getInt("id"));
+			   j.setId_salle((res.getInt("sallefg")));
+			   j.setId_Journee((res.getInt("jourfk")));
+			   j.setId_Periode((res.getInt("periodefk"))); 
+				listReservation.add(j);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return this;	}
+
+	public List<Reservation> getListReservation() {
+		return listReservation;
 	}
 
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public int getId_salle() {
-		return id_salle;
-	}
-
-	public void setId_salle(int id_salle) {
-		this.id_salle = id_salle;
-	}
-
-	public int getId_Periode() {
-		return id_Periode;
-	}
-
-	public void setId_Periode(int id_Periode) {
-		this.id_Periode = id_Periode;
-	}
-
-	public int getId_Journee() {
-		return id_Journee;
-	}
-
-	public void setId_Journee(int id_Journee) {
-		this.id_Journee = id_Journee;
+	public void setListReservation(List<Reservation> listReservation) {
+		this.listReservation = listReservation;
 	}
 
 }

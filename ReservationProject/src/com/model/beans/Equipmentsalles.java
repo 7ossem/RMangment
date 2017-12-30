@@ -7,6 +7,7 @@ import java.util.logging.Logger;
 
 public class Equipmentsalles {
 
+	
 	public Equipmentsalle initEquipmentsalle(int idsalle, int idequipment) {
 		Equipmentsalle J = null;
 		try {
