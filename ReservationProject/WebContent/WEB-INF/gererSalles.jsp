@@ -398,6 +398,7 @@
 	<!-- Placed at the end of the document so the pages load faster -->
 	<script type="text/javascript" src="js/jquery.min.js"     ></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"  ></script>
+		<script src="js/sweetalert.min.js"></script>
 	<script type="text/javascript" src="js/sweetalert.min.js" ></script>
 	<script type="text/javascript" src="js/CTRLGererSalles.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>

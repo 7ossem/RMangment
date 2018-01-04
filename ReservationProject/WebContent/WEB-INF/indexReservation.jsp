@@ -118,9 +118,6 @@
 						</div>
 					</div>
 					<!-- /.row -->
-					<!--  ---------------- -->
-
-					<!-- ---------------------- -->
 
 				</div>
 				<!-- /.container-fluid -->
@@ -134,8 +131,75 @@
 		<!-- Placed at the end of the document so the pages load faster -->
 		<script src="js/jquery.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="js/sweetalert.min.js"></script>
+		<script src="js/sweetalert.min.js"></script>
 		<script src="js/CTRLGererReservation.js"></script>
 		<script src="js/main.js"></script>
+		<script type="text/javascript">
+			function SearchSalles() {
+				var meunselectionjour = document
+						.getElementById("Jour-reservation");
+				var jour_id = meunselectionjour.options[meunselectionjour.selectedIndex].value;
+				// alert(jour_id);
+				var meunselectiontime = document
+						.getElementById("time-reservation");
+				var time_id = meunselectiontime.options[meunselectiontime.selectedIndex].value;
+				// alert(time_id);
+				var capacite = document.getElementById("capacites").value;
+				$.ajax({
+					url : 'gererReservation',
+					data : {
+						choix : 'SearchSalleAdvanced',
+						jour_id : jour_id,
+						time_id : time_id,
+						capacite : capacite
+					},
+					type : 'post',
+					cache : false,
+					success : function(data) {
+						$('#resSearchSalle').html(data);
+					},
+					error : function() {
+						swal("danger!", "Exception Internal Error!", "danger");
+
+					}
+				});
+			}
+			function ReserverSalles(idsalle, idperiode, idjour , iddiv) {
+
+				$.ajax({
+					url : 'gererReservation',
+					data : {
+						choix : 'reserverSalle',
+						idsalle : idsalle,
+						idperiode : idperiode,
+						idjour : idjour
+					},
+					type : 'post',
+					cache : false,
+					success : function(data) {
+						if (data == 1){
+					     	swal("La salle est resrver", {
+						      icon: "success",
+						    });
+					     	
+					     	$('#c'+idsalle+'').animate({buttom: '100px'}).fadeOut(2000);
+					     	 
+			                         }else {
+			                        	 swal({
+			                       		  text: "Remplir Correctement les champ!",
+			                       		  icon: "warning",
+			                       		  button: true,
+			                       		  dangerMode: true,
+			                       		});
+			                         }
+
+					},
+					error : function() {
+						swal("danger!", "Exception Internal Error!", "danger");
+
+					}
+				});
+			}
+		</script>
 </body>
 </html>

@@ -4,6 +4,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Reservations {
 
@@ -52,7 +54,34 @@ public class Reservations {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return this;	}
+		return this;	
+		}
+	
+	public int  ReserverSalle(int ids ,int idp , int jid) {
+		try {
+			Conn.prepareStatement("select * from reservation where sallefg=? and periodefk=? and jourfk= ? ");
+			Conn.getPreparedStatement().setInt(1, ids);
+			Conn.getPreparedStatement().setInt(2,idp );
+			Conn.getPreparedStatement().setInt(3, jid);
+			ResultSet result = Conn.executPreparedStatement();
+			if (!result.next()) {
+				Conn.prepareStatement("INSERT INTO public.reservation"
+						+ "(sallefg, jourfk, periodefk)   VALUES ( ?, ?, ?)");
+				Conn.getPreparedStatement().setInt(1, ids);
+				Conn.getPreparedStatement().setInt(2, jid);
+				Conn.getPreparedStatement().setInt(3,idp );
+				Conn.executUpdatePreparedStatement();
+			} else {
+				return -1;
+			}
+		} catch (SQLException ex) {
+			Logger.getLogger(Salles.class.getName()).log(Level.SEVERE, null, ex);
+			return 0;
+		}
+		return 1;
+	}
+
+
 
 	public List<Reservation> getListReservation() {
 		return listReservation;
