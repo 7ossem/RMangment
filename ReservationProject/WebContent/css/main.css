@@ -215,3 +215,30 @@ background-color :rgba(244,67,54,.8);
 
 background :-webkit-gradient(linear, 0% 18%, 100% 100%, from(#38CF8E), to(#B8FFB0), color-stop(.6,#7AD693));
 }
+
+.accordion-group.ars {
+	
+background-color :rgba(244,67,54,.8);	
+
+background :-webkit-gradient(linear, 0% 100%, 100% 0%, from(#F0AD4E), to(#FFFFFF), color-stop(.5,#F0AD4E));
+}
+div table thead th{
+	font-size : 1.2em;
+	color: white;
+	background: #595959;
+}
+div table tbody tr{
+	background : -webkit-gradient(linear, 0% 100%, 100% 100%, from(#F0F0F0), to(#E4EAED), color-stop(0,#FFFFFF));	
+}
+div table tbody tr td{
+font-size : 1.2em;
+border : solid 1px #595959;
+}
+div table.ars-table tbody tr{
+	background-color :rgba(244,67,54,.8);	
+	background : -webkit-gradient(linear, 0% 100%, 100% 100%, from(#F0F0F0), to(#E4EAED), color-stop(0,#FFFFFF));	
+}
+div table.ars-table tbody tr td{
+font-size : 1.2em;
+border : solid 1px #595959; 
+}

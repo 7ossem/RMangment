@@ -2,6 +2,11 @@ $(function() {
 	GetListSuppEquipment();
 });
 
+function LogOut(){
+
+	window.location.href = 'http://localhost:8085/ReservationProject/'
+		+ 'Deconnexion';
+}
 /**
  * Add Equipment
  */
@@ -20,6 +25,10 @@ function AjouterEquipment() {
 			
 				cache : false,
 				success : function(data) {
+					if (data === 'sessionfalse'){
+						window.location.href = 'http://localhost:8085/ReservationProject/'
+							+ 'Deconnexion';
+					}
 					$('#AjouterRes').html(data);
 					GetListSuppEquipment();
 				},
@@ -80,6 +89,10 @@ function SupprimerEquipment(id) {
 					type : 'post',
 					cache : false,
 					success : function(data) {
+						if (data === 'sessionfalse'){
+							window.location.href = 'http://localhost:8085/ReservationProject/'
+								+ 'Deconnexion';
+						}
 						$('#supprimerWarning').html(data);
 						GetListSuppEquipment();
 					},
@@ -109,6 +122,10 @@ function GetListSuppEquipment() {
 				type : 'post',
 				cache : false,
 				success : function(data) {
+					if (data === 'sessionfalse'){
+						window.location.href = 'http://localhost:8085/ReservationProject/'
+							+ 'Deconnexion';
+					}
 					$('#supequipment').html(data);
 				},
 
@@ -142,6 +159,10 @@ function GetListModEquipment() {
 				type : 'post',
 				cache : false,
 				success : function(data) {
+					if (data === 'sessionfalse'){
+						window.location.href = 'http://localhost:8085/ReservationProject/'
+							+ 'Deconnexion';
+					}
 					$('#listmodequipment').html(data);
 				},
 
@@ -171,6 +192,10 @@ function EditEquipment(id,nom) {
  type : 'post',
  cache : false,
  success : function(data) {
+	 if (data === 'sessionfalse'){
+			window.location.href = 'http://localhost:8085/ReservationProject/'
+				+ 'Deconnexion';
+		}
 	 if (data == 1){
 		 swal("Equipment has been Edited!", {
 		      icon: "success",
@@ -234,6 +259,10 @@ function searchEditEquimnet(){
 		 type : 'post',
 		 cache : false,
 		 success : function(data) {
+			 if (data === 'sessionfalse'){
+					window.location.href = 'http://localhost:8085/ReservationProject/'
+						+ 'Deconnexion';
+				}
 				$('#listmodequipment').html(data);
 			},
 

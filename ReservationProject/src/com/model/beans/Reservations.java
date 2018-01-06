@@ -80,8 +80,23 @@ public class Reservations {
 		}
 		return 1;
 	}
+	public int AnnulerReservation(int ids ,int idp , int jid) {
+		try {
+			
+				Conn.prepareStatement("DELETE FROM reservation WHERE sallefg = ? and periodefk = ? and jourfk = ? ");
+				Conn.getPreparedStatement().setInt(1, ids);
+				Conn.getPreparedStatement().setInt(2, idp);
+				Conn.getPreparedStatement().setInt(3, jid);
+				System.out.println(Conn.getPreparedStatement());
 
+				Conn.executUpdatePreparedStatement();
 
+		} catch (SQLException ex) {
+			Logger.getLogger(Salles.class.getName()).log(Level.SEVERE, null, ex);
+			return 0;
+		}
+		return 1;
+	}
 
 	public List<Reservation> getListReservation() {
 		return listReservation;

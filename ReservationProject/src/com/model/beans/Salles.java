@@ -222,4 +222,37 @@ public class Salles {
 		// la salle n exist pas
 		return -1;
 	}
+// search  Liberer
+	public Salles SearchAdvancedLiberer(int capcite, int id_jour, int id_Peroie, int numsalle) {
+
+		try {
+	if(numsalle >0){
+		stmt = Conn.getConnection().prepareStatement(
+				"SELECT salle.num, salle.capacite FROM "
++" public.reservation inner join  public.salle on salle.num = reservation.sallefg "
++"WHERE reservation.sallefg = "+numsalle+" AND  reservation.jourfk = "+id_jour+" "
++ "AND reservation.periodefk = "+id_Peroie+" AND salle.capacite >= "+capcite+""
+);
+	}else {
+			stmt = Conn.getConnection().prepareStatement(
+					"SELECT salle.num, salle.capacite FROM "
++" public.reservation inner join  public.salle on salle.num = reservation.sallefg "
++"WHERE  AND  reservation.jourfk = "+id_jour+" "
++ "AND reservation.periodefk = "+id_Peroie+" AND salle.capacite >= "+capcite+""
+);}
+	System.out.println("+"+stmt);
+			result = stmt.executeQuery();
+			Salle salle;
+			while (result.next()) {
+				salle = new Salle();
+				salle = initSallesReservation(result);
+				ListSalles.add(salle);
+			}
+		} catch (SQLException ex) {
+			Logger.getLogger(Salles.class.getName()).log(Level.SEVERE, null, ex);
+		}
+		return this;
+	}
+
+		
 }

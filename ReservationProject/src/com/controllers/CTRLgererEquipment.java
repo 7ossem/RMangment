@@ -51,13 +51,23 @@ public class CTRLgererEquipment extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String choix = request.getParameter("choix");
+		
 		response.setContentType("text/plain");
 		PrintWriter out = response.getWriter();
+		boolean session =false;
+		try {
+		 session =	(boolean)request.getSession().getAttribute("session");
+		} catch (Exception e) {
+		
+		}
+		if(session){
+		
 
 		switch (choix) {
 		/**
 		 * ADD Component
 		 */
+		
 		case "Ajouterequipment":
 			Equipments e = new Equipments();
 			Equipment eq = new Equipment();
@@ -171,4 +181,9 @@ public class CTRLgererEquipment extends HttpServlet {
 			out.print("Default");
 			break;
 		}
-}}
+		}else{
+			 out.print("sessionfalse");
+	
+		}
+}
+		}

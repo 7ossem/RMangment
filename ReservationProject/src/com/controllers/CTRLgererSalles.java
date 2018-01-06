@@ -49,7 +49,14 @@ public class CTRLgererSalles extends HttpServlet {
 		String choix = request.getParameter("choix");
 		response.setContentType("text/plain");
 		PrintWriter out = response.getWriter();
-
+		boolean session =false;
+		try {
+		 session =	(boolean)request.getSession().getAttribute("session");
+		} catch (Exception e) {
+		
+		}
+		if(session){
+			
 		switch (choix) {
 		// consulter salles
 		case "ConsulterListSalles":
@@ -335,6 +342,8 @@ public class CTRLgererSalles extends HttpServlet {
 		default:
 			break;
 		}
+	}else{
+		 out.print("sessionfalse");
 	}
-	
+	}
 }

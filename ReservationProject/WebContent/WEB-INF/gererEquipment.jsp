@@ -56,7 +56,7 @@
 					<li><a href="#"><i class="fa fa-fw fa-cog"></i> Change
 							Password</a></li>
 					<li class="divider"></li>
-					<li><a href="#"><i class="fa fa-fw fa-power-off"></i>
+					<li><a href="#" onclick="LogOut();"><i class="fa fa-fw fa-power-off"></i>
 							Logout</a></li>
 				</ul></li>
 		</ul>
@@ -116,7 +116,7 @@
 							<div class="tab-content">
 								<div class="tab-pane fade in active header" id="tab1">
 							<h2 class="text-info text-center"> Ajouter Equipment</h2>
-									<form action="#">
+									<form action="javascript:void(0);">
 										<div class="input-group">
 											<input class="btn btn-lg" name="eqNom" id="eqNom" type="text"
 												placeholder="Equipment ..." required>

@@ -1,6 +1,11 @@
 /**
  * 
  */
+function LogOut(){
+	window.location.href = 'http://localhost:8085/ReservationProject/'
+		+ 'Deconnexion';
+}
+
 $(document).ready(function(){
 	GetListEquipments();
 	$("#searchbuttomsupp").click(function(){
